@@ -1,0 +1,46 @@
+{
+    "manufacturer": "=",
+    "keyboard_name": "test-pico",
+    "maintainer": "zegonix",
+    "processor": "RP2040",
+    "bootloader": "rp2040",
+    "diode_direction": "COL2ROW",
+    "url": "https://github.com/zegonix/custom-cycle7-pcb",
+    "features": {
+        "bootmagic": true,
+        "nkro":      true,
+        "extrakey":  true,
+        "mousekey":  true,
+        "rgblight":  true
+    },
+    "required": ["lto"],
+    "usb": {
+        "device_version": "0.0.1",
+        "pid": "0x6337",
+        "vid": "0x7A78"
+    },
+    "matrix_pins": {
+        "cols": ["GP2", "GP3"],
+        "rows": ["GP4", "GP5"]
+    },
+    "rgblight": {
+        "led_count": 1
+    },
+    "ws2812": {
+        "pin": "GP1",
+        "driver": "vendor"
+    },
+    "tapping": {
+        "term": 200
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label":  "0", "matrix": [0,  0], "x":     0, "y": 0, "w":    1},
+                {"label":  "1", "matrix": [0,  1], "x":     1, "y": 0, "w":    1},
+                {"label":  "2", "matrix": [1,  0], "x":     2, "y": 0, "w":    1},
+                {"label":  "3", "matrix": [1,  1], "x":     3, "y": 0, "w":    1}
+            ]
+        }
+    }
+}

@@ -1,0 +1,1 @@
+if qmk does not compile, try 'qmk git-submodule -f'
