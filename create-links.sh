@@ -9,19 +9,15 @@ if [[ -z $1 ]]; then
     exit 1;
 fi
 
-if [[ ! -d $1 ]]; then
+if [[ ! -d "$1/keyboards" ]]; then
+    echo "argument one is not a valid path to a qmk repository"
+    echo ""
     show_usage;
     exit 1;
 else
-    config_dir="$(dirname -- "$(realpath -- "$0")")"
+    repo_dir="$(dirname -- "$(realpath -- "$0")")"
 
-    # link directory for keebsforall/freebirdtkl
-    ln -s -f "${config_dir}/keyboards/keebsforall/freebirdtkl" "$1/keyboards/keebsforall/fbtkl"
-    # link directories for mode/envoy and mode/mode80
-    ln -s -f "${config_dir}/keyboards/mode/envoy" "$1/keyboards/mode/envoy"
-    ln -s -f "${config_dir}/keybaords/mode/mode80" "$1/keyboards/mode/mode80"
-    # link directory for sofle
-    ln -s -f "${config_dir}/keyboards/sofle/keymaps/quaken" "$1/keyboards/sofle/keymaps/quaken"
     # link personal keyboards
-    ln -s -f "${config_dir}/keyboards/zegonix" "$1/keyboards/zegonix"
+    ln -s -f "${repo_dir}/zegonix" "$1/keyboards/zegonix"
+    echo "link created successfully"
 fi
