@@ -1,5 +1,3 @@
-SERIAL_DRIVER = usart
-
 ENCODER_ENABLE = yes
 ENCODER_MAP_ENABLE = yes
 

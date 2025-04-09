@@ -14,7 +14,6 @@ enum sofle_layers {
     _GAME,
     _NAV,
     _CHAR,
-    _MOUS,
 };
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
@@ -22,7 +21,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [_GAME] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_WH_D, KC_WH_U) },
     [_NAV]  = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(_______, _______) },
     [_CHAR] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
-    [_MOUS] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -48,7 +46,7 @@ KC_ESC,    KC_1,      KC_2,      KC_3,      KC_4,      KC_5,                    
 KC_TAB,    KC_Q,      KC_W,      KC_E,      KC_R,      KC_T,                             KC_Y,      KC_U,      KC_I,      KC_O,      KC_P,      KC_BSLS,
 MO(_CHAR), QUAK_A,    QUAK_S,    QUAK_D,    QUAK_F,    KC_G,                             KC_H,      QUAK_J,    QUAK_K,    QUAK_L,    QUAK__,    KC_QUOT,
 KC_LSFT,   KC_Z,      KC_X,      KC_C,      KC_V,      KC_B,      KC_MUTE,    DF(_GAME), KC_N,      KC_M,      KC_COMM,   KC_DOT,    KC_SLSH,   KC_RSFT,
-           KC_LALT,   KC_LCTL,   MO(_MOUS), KC_SPC,    KC_DEL,                           KC_BSPC,   KC_ENT,    MO(_NAV),  KC_RALT,   KC_LGUI
+           KC_LALT,   KC_LCTL,   KC_DEL,    KC_SPC,    KC_ESC,                           KC_BSPC,   KC_ENT,    MO(_NAV),  KC_RALT,   KC_LGUI
 ),
 
 // GAME LAYER
@@ -77,15 +75,6 @@ _______,   KC_LGUI,   KC_LALT,   KC_LSFT,   KC_LCTL,   _______,                 
 _______,   _______,   _______,   _______,   _______,   _______,   _______,    _______,   _______,   _______,   _______,   _______,   _______,   _______,
            QK_BOOT,   _______,   _______,   KC_CAPS,   _______,                          _______,   _______,   _______,   _______,   _______
 ),
-
-// MOUSE KEYS LAYER
-[_MOUS] = LAYOUT(
-_______,   _______,   _______,   _______,   _______,   _______,                          _______,   _______,   _______,   _______,   _______,   _______,
-_______,   _______,   _______,   _______,   _______,   _______,                          KC_WH_U,   KC_BTN1,   KC_MS_U,   KC_BTN2,   _______,   _______,
-_______,   KC_LGUI,   KC_LALT,   KC_LSFT,   KC_LCTL,   _______,                          KC_WH_D,   KC_MS_L,   KC_MS_D,   KC_MS_R,   _______,   _______,
-_______,   _______,   _______,   _______,   _______,   _______,   _______,    _______,   _______,   _______,   _______,   _______,   _______,   _______,
-           _______,   _______,   _______,   _______,   _______,                          _______,   _______,   _______,   _______,   _______
-)
 
 };
 

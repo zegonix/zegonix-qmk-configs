@@ -21,7 +21,10 @@
 
 /* split settings */
 #define	SPLIT_HAND_PIN_LOW_IS_LEFT
-#define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
-#define SERIAL_USART_TX_PIN A11    // USART TX pin
-#define SERIAL_USART_RX_PIN A12    // USART RX pin
-#define SERIAL_USART_DRIVER SD6    // Select UART Driver for interface 6
+#define SERIAL_USART_FULL_DUPLEX     // Enable full duplex operation mode.
+#define SERIAL_USART_TX_PIN      C6  // USART TX pin
+#define SERIAL_USART_RX_PIN      C7  // USART RX pin
+#define SERIAL_USART_DRIVER      SD6 // Select UART Driver for interface 6
+#define SERIAL_USART_TX_PAL_MODE 8   // USART6 is Alternate Function 8 on C6/7
+#define SERIAL_USART_RX_PAL_MODE 8
+

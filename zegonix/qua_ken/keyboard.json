@@ -1,5 +1,5 @@
 {
-    "manufacturer": "=",
+    "manufacturer": "zegonix :",
     "keyboard_name": "qua-ken",
     "maintainer": "zegonix",
     "processor": "STM32F401",
@@ -24,11 +24,15 @@
     },
     "encoder": {
         "rotary": [
-            { "pin_a": "B14", "pin_b": "B15", "resolution": 2 }
+            { "pin_a": "B14", "pin_b": "B15", "resolution": 4 }
         ]
     },
     "split" : {
         "enabled": true,
+        "serial": {
+            "driver": "usart",
+        },
+        "soft_serial_speed": 1,
         "handedness": {
             "pin": "A2",
         },
