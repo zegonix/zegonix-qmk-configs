@@ -67,9 +67,9 @@ KC_LCTL,   KC_LGUI,   KC_LALT,   KC_M,                 KC_SPC,               KC_
 
 // navigation layer
 [_NAV] = LAYOUT(
-KC_GRV,    KC_F1,     KC_F2,     KC_F3,     KC_F4,     KC_F5,     KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    _______,     QK_BOOT,   _______,   _______,
-_______,   _______,   KC_HOME,   KC_UP,     KC_END,    KC_PGUP,   _______,   KC_MPRV,   KC_MPLY,   KC_MNXT,   _______,   _______,   _______,   _______,     _______,   _______,   _______,
-_______,   _______,   KC_LEFT,   KC_DOWN,   KC_RGHT,   KC_PGDN,   _______,   KC_LCTL,   KC_LSFT,   KC_LALT,   KC_LGUI,   _______,              _______,
+KC_GRV,    KC_F1,     KC_F2,     KC_F3,     KC_F4,     KC_F5,     KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    _______,     _______,   _______,   _______,
+_______,   _______,   KC_HOME,   KC_UP,     KC_END,    KC_PGUP,   _______,   KC_MPRV,   KC_MPLY,   KC_MNXT,   KC_MSTP,   _______,   _______,   _______,     _______,   _______,   _______,
+_______,   _______,   KC_LEFT,   KC_DOWN,   KC_RGHT,   KC_PGDN,   _______,   _______,   _______,   _______,   _______,   _______,              _______,
 _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,                         _______,                _______,
 _______,   _______,   _______,   _______,              _______,              _______,                         _______,   _______,   _______,   _______,     _______,   _______,   _______
 ),
@@ -77,8 +77,8 @@ _______,   _______,   _______,   _______,              _______,              ___
 // div
 [_DIV] = LAYOUT(
 KC_GRV,    KC_F1,     KC_F2,     KC_F3,     KC_F4,     KC_F5,     KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    _______,     RGB_TOG,   RGB_M_P,   _______,
-_______,   _______,   _______,   _______,   _______,   DF(_GAME), _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,     _______,   _______,   _______,
-_______,   _______,   KC_LALT,   KC_LSFT,   KC_LCTL,   DF(_BASE), _______,   KC_DEL,    KC_VOLU,   KC_VOLD,   _______,   _______,              _______,
+_______,   _______,   _______,   KC_VOLD,   KC_VOLU,   DF(_GAME), _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,     _______,   _______,   _______,
+_______,   _______,   _______,   _______,   _______,   DF(_BASE), KC_DEL,    KC_MINS,   KC_EQL,    KC_LBRC,   KC_RBRC,   KC_BSLS,              _______,
 _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,                         _______,                RGB_VAI,
 QK_BOOT,   _______,   _______,   _______,              KC_CAPS,              _______,                         _______,   _______,   _______,   _______,     RGB_HUD,   RGB_VAD,   RGB_HUI
 ),
@@ -94,12 +94,12 @@ _______,   _______,   _______,   _______,              _______,              ___
 };
 
 /* Indicator LED Configuraton */
-const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({1, 1, HSV_YELLOW});
-const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({1, 1, HSV_SPRINGGREEN});
-const rgblight_segment_t PROGMEM rgb_layer_NAV[] = RGBLIGHT_LAYER_SEGMENTS({11, 2, HSV_PURPLE});
-const rgblight_segment_t PROGMEM rgb_layer_DIV[] = RGBLIGHT_LAYER_SEGMENTS({11, 2, HSV_PURPLE});
-const rgblight_segment_t PROGMEM rgb_layer_MOUS[] = RGBLIGHT_LAYER_SEGMENTS({11, 2, HSV_PURPLE});
-const rgblight_segment_t PROGMEM rgb_layer_CAPS[] = RGBLIGHT_LAYER_SEGMENTS({1, 1, HSV_WHITE});
+const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_YELLOW});
+const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_SPRINGGREEN});
+const rgblight_segment_t PROGMEM rgb_layer_NAV[]  = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_PURPLE});
+const rgblight_segment_t PROGMEM rgb_layer_DIV[]  = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_PURPLE});
+const rgblight_segment_t PROGMEM rgb_layer_MOUS[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_PURPLE});
+const rgblight_segment_t PROGMEM rgb_layer_CAPS[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_WHITE});
 
 const rgblight_segment_t * const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
     [_BASE] = rgb_layer_BASE,

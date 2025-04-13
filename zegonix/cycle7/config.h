@@ -30,16 +30,25 @@
 #endif // STM32_HSE_BYPASS
 
 /* configuration of indicator led */
+#define WS2812_DI_PIN             A5
+#define RGBLIGHT_LED_COUNT        1
+
+#define WS2812_TIMING             1250
+#define WS2812_T1H                640
+#define WS2812_T0H                320
+#define WS2812_TRST_US            200
+#define WS2812_BYTE_ORDER         WS2812_BYTE_ORDER_GRB
+
 #define WS2812_PWM_DRIVER         PWMD2
 #define WS2812_PWM_CHANNEL        1
 #define WS2812_PWM_PAL_MODE       1
 #define WS2812_PWM_DMA_STREAM     STM32_DMA1_STREAM1
 #define WS2812_PWM_DMA_CHANNEL    3
 
-#define WS2812_PWM_TARGET_PERIOD  800000
 #ifdef WS2812_RGBW
 #undef WS2812_RGBW
 #endif
+
 #ifdef WS2812_EXTERNAL_PULLUP
 #undef WS2812_EXTERNAL_PULLUP
 #endif
@@ -51,4 +60,3 @@
 // configuration of rgb light abstraction layer
 #define RGBLIGHT_SLEEP
 #define RGBLIGHT_LAYERS
-#define RGBLIGHT_LAYERS_OVERRIDE_RGB_OFF

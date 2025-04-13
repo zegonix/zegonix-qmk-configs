@@ -3,8 +3,10 @@
 #include_next <mcuconf.h>
 
 /* clock configuration */
+#ifdef STM32_PLLM_VALUE
 #undef STM32_PLLM_VALUE
-#define STM32_PLLM_VALUE       6
+#endif
+#define STM32_PLLM_VALUE 6
 
 /* system configuration */
 #ifdef STM32_ST_USE_TIMER
