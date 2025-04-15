@@ -78,7 +78,7 @@ _______,   _______,   _______,   _______,              _______,              ___
 [_DIV] = LAYOUT(
 KC_GRV,    KC_F1,     KC_F2,     KC_F3,     KC_F4,     KC_F5,     KC_F6,     KC_F7,     KC_F8,     KC_F9,     KC_F10,    KC_F11,    KC_F12,    _______,     RGB_TOG,   RGB_M_P,   _______,
 _______,   _______,   _______,   KC_VOLD,   KC_VOLU,   DF(_GAME), _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,     _______,   _______,   _______,
-_______,   _______,   _______,   _______,   _______,   DF(_BASE), KC_DEL,    KC_MINS,   KC_EQL,    KC_LBRC,   KC_RBRC,   KC_BSLS,              _______,
+_______,   _______,   KC_LALT,   KC_LSFT,   KC_LCTL,   DF(_BASE), KC_DEL,    KC_MINS,   KC_EQL,    KC_LBRC,   KC_RBRC,   KC_BSLS,              _______,
 _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,                         _______,                RGB_VAI,
 QK_BOOT,   _______,   _______,   _______,              KC_CAPS,              _______,                         _______,   _______,   _______,   _______,     RGB_HUD,   RGB_VAD,   RGB_HUI
 ),
@@ -94,20 +94,15 @@ _______,   _______,   _______,   _______,              _______,              ___
 };
 
 /* Indicator LED Configuraton */
-const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_YELLOW});
-const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_SPRINGGREEN});
-const rgblight_segment_t PROGMEM rgb_layer_NAV[]  = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_PURPLE});
-const rgblight_segment_t PROGMEM rgb_layer_DIV[]  = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_PURPLE});
-const rgblight_segment_t PROGMEM rgb_layer_MOUS[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_PURPLE});
-const rgblight_segment_t PROGMEM rgb_layer_CAPS[] = RGBLIGHT_LAYER_SEGMENTS({1, 0, HSV_WHITE});
+// const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1, HSV_YELLOW});
+const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,  30, 255,  70});
+const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({0, 1, 197, 255,  70});
+const rgblight_segment_t PROGMEM rgb_layer_CAPS[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,   0,   0,  70});
 
 const rgblight_segment_t * const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    [_BASE] = rgb_layer_BASE,
-    [_GAME] = rgb_layer_GAME,
-    [_NAV]  = rgb_layer_NAV,
-    [_DIV]  = rgb_layer_DIV,
-    [_MOUS] = rgb_layer_MOUS,
-    [_CAPS] = rgb_layer_CAPS
+    rgb_layer_BASE,
+    rgb_layer_GAME,
+    rgb_layer_CAPS
 );
 
 void keyboard_post_init_user(void) {
@@ -115,19 +110,15 @@ void keyboard_post_init_user(void) {
 }
 
 bool led_update_user(led_t led_state) {
-    rgblight_set_layer_state(_CAPS, led_state.caps_lock);
+    rgblight_set_layer_state(2, led_state.caps_lock);
+
     return true;
 }
 
 layer_state_t default_layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_BASE, layer_state_cmp(state, _BASE));
-    rgblight_set_layer_state(_GAME, layer_state_cmp(state, _GAME));
+    rgblight_set_layer_state(0, layer_state_cmp(state, _BASE));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _GAME));
+
     return state;
 }
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    rgblight_set_layer_state(_NAV, layer_state_cmp(state, _NAV));
-    rgblight_set_layer_state(_DIV, layer_state_cmp(state, _DIV));
-    rgblight_set_layer_state(_MOUS, layer_state_cmp(state, _MOUS));
-    return state;
-}
