@@ -100,42 +100,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          _______,  _______,  _______,  _______,  _______,     _______,  _______,     _______,  _______,  _______,  _______,  _______
 ),
 };
+/* Indicator LED Configuraton */
+const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,  27, 255,  70});
+const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({0, 1, 197, 255,  70});
+const rgblight_segment_t PROGMEM rgb_layer_CAPS[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,   0,   0,  70});
 
-// /* Indicator LED Configuraton */
-// const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({1, 1, HSV_YELLOW});
-// const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({1, 1, HSV_SPRINGGREEN});
-// const rgblight_segment_t PROGMEM rgb_layer_NAV[] = RGBLIGHT_LAYER_SEGMENTS({11, 2, HSV_PURPLE});
-// const rgblight_segment_t PROGMEM rgb_layer_DIV[] = RGBLIGHT_LAYER_SEGMENTS({11, 2, HSV_PURPLE});
-// const rgblight_segment_t PROGMEM rgb_layer_MOUS[] = RGBLIGHT_LAYER_SEGMENTS({11, 2, HSV_PURPLE});
-// const rgblight_segment_t PROGMEM rgb_layer_CAPS[] = RGBLIGHT_LAYER_SEGMENTS({1, 1, HSV_WHITE});
-// 
-// const rgblight_segment_t * const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-//     [_BASE] = rgb_layer_BASE,
-//     [_GAME] = rgb_layer_GAME,
-//     [_NAV]  = rgb_layer_NAV,
-//     [_DIV]  = rgb_layer_DIV,
-//     [_MOUS] = rgb_layer_MOUS,
-//     [_CAPS] = rgb_layer_CAPS
-// );
-// 
-// void keyboard_post_init_user(void) {
-//     rgblight_layers = rgb_layers;
-// }
-// 
-// bool led_update_user(led_t led_state) {
-//     rgblight_set_layer_state(_CAPS, led_state.caps_lock);
-//     return true;
-// }
-// 
-// layer_state_t default_layer_state_set_user(layer_state_t state) {
-//     rgblight_set_layer_state(_BASE, layer_state_cmp(state, _BASE));
-//     rgblight_set_layer_state(_GAME, layer_state_cmp(state, _GAME));
-//     return state;
-// }
-// 
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//     rgblight_set_layer_state(_NAV, layer_state_cmp(state, _NAV));
-//     rgblight_set_layer_state(_DIV, layer_state_cmp(state, _DIV));
-//     rgblight_set_layer_state(_MOUS, layer_state_cmp(state, _MOUS));
-//     return state;
-// }
+const rgblight_segment_t * const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+    rgb_layer_BASE,
+    rgb_layer_GAME,
+    rgb_layer_CAPS
+);
+
+void keyboard_post_init_user(void) {
+    rgblight_layers = rgb_layers;
+}
+
+bool led_update_user(led_t led_state) {
+    rgblight_set_layer_state(2, led_state.caps_lock);
+
+    return true;
+}
+
+layer_state_t default_layer_state_set_user(layer_state_t state) {
+    rgblight_set_layer_state(0, layer_state_cmp(state, _BS));
+    rgblight_set_layer_state(1, layer_state_cmp(state, _GM));
+
+    return state;
+}
+
+
