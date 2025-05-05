@@ -94,8 +94,8 @@ _______,   _______,   _______,   _______,              _______,              ___
 };
 
 /* Indicator LED Configuraton */
-// const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,  29, 255,  70});
-const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1, 150, 255,  70});
+// const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1, 145, 255,  70});
+const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,  29, 255,  70});
 const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({0, 1, 197, 255,  70});
 const rgblight_segment_t PROGMEM rgb_layer_CAPS[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,   0,   0,  70});
 
