@@ -18,8 +18,6 @@ enum layer_names {
     _NAV,
     _DIV,
     _MOUS,
-
-    _CAPS, // for lighting layers only, do not assign keymap!
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {

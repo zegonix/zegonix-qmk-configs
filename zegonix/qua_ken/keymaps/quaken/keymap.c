@@ -100,6 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
          _______,  _______,  _______,  _______,  _______,     _______,  _______,     _______,  _______,  _______,  _______,  _______
 ),
 };
+
 /* Indicator LED Configuraton */
 const rgblight_segment_t PROGMEM rgb_layer_BASE[] = RGBLIGHT_LAYER_SEGMENTS({0, 1,  27, 255,  70});
 const rgblight_segment_t PROGMEM rgb_layer_GAME[] = RGBLIGHT_LAYER_SEGMENTS({0, 1, 197, 255,  70});
@@ -127,5 +128,4 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 
     return state;
 }
-
 
