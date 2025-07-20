@@ -1,0 +1,10 @@
+device APM32F103CB
+selectinterface SWD
+speed 4000
+
+reset
+halt
+
+loadfile ./bootloader_only_binaries/generic-none_bootloader.bin, 0x08000000
+
+exit
