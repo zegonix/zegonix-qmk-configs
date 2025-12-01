@@ -23,8 +23,8 @@ enum layer_names {
 };
 
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_BS] = { ENCODER_CCW_CW(KC_WH_L, KC_WH_R), ENCODER_CCW_CW(KC_WH_D, KC_WH_U) },
-    [_GM] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_WH_D, KC_WH_U) },
+    [_BS] = { ENCODER_CCW_CW(MS_WHLL, MS_WHLR), ENCODER_CCW_CW(MS_WHLD, MS_WHLU) },
+    [_GM] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(MS_WHLD, MS_WHLU) },
     [_NV] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(_______, _______) },
     [_CH] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
     [_MS] = { ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______) },
@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_BSLS,
     MO(_CH),  QUAK_A,   QUAK_S,   QUAK_D,   QUAK_F,   KC_G,                     KC_H,     QUAK_J,   QUAK_K,   QUAK_L,   QUAK__,   KC_QUOT,
     KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_RSFT,
-         KC_LALT,  KC_LCTL,  KC_ESC,  KC_SPC,   KC_DEL,       _______,  _______,     KC_BSPC,  KC_ENT,   MO(_NV),  _______,  KC_RGUI
+         KC_LALT,  KC_LCTL,  KC_ESC,  KC_SPC,   KC_DEL,       DF(_GM),  _______,     KC_BSPC,  KC_ENT,   MO(_NV),  _______,  KC_RGUI
 ),
 
 // gaming layer
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,  _______,  KC_HOME,  KC_UP,    KC_END,   KC_PGUP,                  _______,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MSTP,  KC_F12,
     _______,  _______,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_PGDN,                  _______,  KC_LCTL,  KC_LSFT,  KC_LALT,  KC_LGUI,  _______,
     _______,  _______,  _______,  _______,  _______,  _______,                  _______,  _______,  _______,  _______,  _______,  _______,
-         _______,  _______,  _______,  _______,  _______,     KC_MUTE,  _______,     _______,  _______,  _______,  _______,  _______
+         _______,  _______,  _______,  _______,  _______,     KC_MUTE,  _______,     _______,  _______,  _______,  _______,  QK_BOOT
 ),
 
 // div
@@ -88,15 +88,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,  _______,  _______,  _______,  _______,  _______,                  _______,  _______,  _______,  _______,  _______,  KC_F12,
     _______,  _______,  KC_LALT,  KC_LSFT,  KC_LCTL,  _______,                  _______,  KC_MINS,  KC_EQL,   KC_LBRC,  KC_RBRC,  KC_BSLS,
     _______,  _______,  _______,  _______,  _______,  _______,                  _______,  _______,  _______,  _______,  _______,  _______,
-         _______,  _______,  _______,  KC_CAPS,  _______,     _______,  _______,     _______,  _______,  _______,  _______,  _______
+         QK_BOOT,  _______,  _______,  KC_CAPS,  _______,     _______,  _______,     _______,  _______,  _______,  _______,  _______
 ),
 
 // mouse layer
 [_MS] = LAYOUT(
     _______,  _______,  _______,  _______,  _______,  _______,                  _______,  _______,  _______,  _______,  _______,  _______,
-    _______,  _______,  _______,  _______,  _______,  _______,                  _______,  _______,  KC_MS_U,  _______,  _______,  _______,
-    _______,  _______,  _______,  _______,  _______,  _______,                  KC_BTN1,  KC_MS_L,  KC_MS_D,  KC_MS_R,  _______,  _______,
-    _______,  _______,  _______,  _______,  _______,  _______,                  _______,  KC_BTN2,  _______,  _______,  _______,  _______,
+    _______,  _______,  _______,  _______,  _______,  _______,                  _______,  _______,  MS_UP,    _______,  _______,  _______,
+    _______,  _______,  _______,  _______,  _______,  _______,                  MS_BTN1,  MS_LEFT,  MS_DOWN,  MS_RGHT,  _______,  _______,
+    _______,  _______,  _______,  _______,  _______,  _______,                  _______,  MS_BTN2,  _______,  _______,  _______,  _______,
          _______,  _______,  _______,  _______,  _______,     _______,  _______,     _______,  _______,  _______,  _______,  _______
 ),
 };
